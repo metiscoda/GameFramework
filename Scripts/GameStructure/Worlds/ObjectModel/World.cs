@@ -62,23 +62,32 @@ namespace GameFramework.GameStructure.Worlds.ObjectModel
         }
 
         /// <summary>
-        /// Return the total star count for all levels contained within this world.
+        /// Return the total star won count for all levels contained within this world.
         /// </summary>
-        public int LevelStarCountTotal
+        public int StarsWon
         {
             get
             {
                 Assert.IsNotNull(Levels,
                     string.Format(
-                        "Error trying to get the level totla star count when no levels are set for world {0}", Number));
+                        "Error trying to get the star won count when no levels are set for world {0}", Number));
 
-                var totalStarCount = 0;
-                foreach (var level in Levels.Items)
-                {
-                    totalStarCount += level.StarsWonCount;
-                }
+                return Levels.StarsWon;
+            }
+        }
 
-                return totalStarCount;
+        /// <summary>
+        /// Return the total star count for all levels contained within this world.
+        /// </summary>
+        public int StarsTotal
+        {
+            get
+            {
+                Assert.IsNotNull(Levels,
+                    string.Format(
+                        "Error trying to get the stars total count when no levels are set for world {0}", Number));
+
+                return Levels.StarsTotal;
             }
         }
 
